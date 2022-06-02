@@ -48,8 +48,19 @@ export const Button = styled.button<IButton>`
   border-radius: ${STYLES.effects.borderRadius};
   transition: all 0.2s ease;
 
-  :hover{
+  :hover {
     opacity: 0.6;
-    filter: drop-shadow(0 4px 4px rgba(0,0,0,.25));
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
   }
+`;
+
+export const H3 = styled.h3`
+  font-size: 1.8rem;
+  color: ${STYLES.colors.colorGrayPrimary};
+  font-weight: 600;
+`;
+
+export const P = styled.p`
+  font-size: 1.6rem;
+  color: ${STYLES.colors.colorGrayAccent};
 `;
