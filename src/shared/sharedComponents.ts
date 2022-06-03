@@ -18,9 +18,11 @@ export const FlexContainer = styled.div`
 
 interface IBadge {
   noHover?: boolean;
+  noCursor?: boolean;
 }
 
 export const Badge = styled.button<IBadge>`
+
   &.active {
     background: ${STYLES.colors.colorBluePrimary};
     color: ${STYLES.colors.colorwhitePrimary};
@@ -31,7 +33,7 @@ export const Badge = styled.button<IBadge>`
     color: ${STYLES.colors.colorwhitePrimary};
   }
 
-  cursor: pointer;
+  cursor: ${(props)=>props.noCursor? 'auto' : 'pointer'};
   border: none;
   padding: 0.6rem 1.6rem;
   background: ${STYLES.colors.colorwhiteSecondary};
@@ -40,7 +42,7 @@ export const Badge = styled.button<IBadge>`
   color: ${STYLES.colors.colorBluePrimary};
   font-weight: 500;
   border-radius: 1rem;
-  transition: all 0.2s ease;
+  transition:background-color 0.2s ease;
 
   :hover {
     background: ${(props) =>

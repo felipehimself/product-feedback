@@ -3,14 +3,17 @@ import STYLES from '../constants/styles';
 const GlobalStyles = createGlobalStyle`
 
 
-*, *::after, *::before {
+*, 
+ *::after,
+ *::before {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
   font-size: 62.5%;
-  font-family: Jost ,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+  font-family: 'Jost', sans-serif;
 }
 
 

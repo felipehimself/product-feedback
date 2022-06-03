@@ -44,6 +44,11 @@ export const Button = styled.button`
   padding: 1rem;
   border-radius: 1rem;
   cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  :hover {
+    background: ${STYLES.colors.colorGrayTertiary};
+  }
 `;
 
 export const NavLink = styled(Link)`

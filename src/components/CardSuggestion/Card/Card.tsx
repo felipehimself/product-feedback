@@ -22,7 +22,7 @@ const Card: React.FC<IData> = ({ category, comments, detail, id, title, votes })
       <Style.Item display='flex' direction='column'>
         <Style.NavLink to='/'>{title}</Style.NavLink>
         <P>{detail}</P>
-        <Badge noHover>{category}</Badge>
+        <Badge noHover noCursor>{category}</Badge>
       </Style.Item>
       <Style.IconContainer>
         <CommentIcon />

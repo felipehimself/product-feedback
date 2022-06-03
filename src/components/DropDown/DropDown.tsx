@@ -23,7 +23,7 @@ const DropDown = () => {
         <Style.Span capitalize='capitalize' weight='bold'>
           {dropItemSelected}
         </Style.Span>
-        <DropDownIcon isOpen={false} />
+        <DropDownIcon isOpen={isOpen} />
       </Style.Button>
 
       {isOpen && (
