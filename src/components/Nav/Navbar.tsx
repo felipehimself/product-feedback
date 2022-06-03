@@ -19,13 +19,15 @@ const Navbar = () => {
   const inProgressAmount = data.filter(
     (item) => item.status === 'in-progress'
   ).length;
-  const liveAmount = data.filter(
-    (item) => item.status === 'live'
-  ).length;
+  const liveAmount = data.filter((item) => item.status === 'live').length;
 
   console.log(data);
   return (
     <Style.Nav>
+      <Style.LogoContainer>
+        <Style.H1>Frontend Mentor</Style.H1>
+        <Style.P>Feedback Board</Style.P>
+      </Style.LogoContainer>
       <Style.Card>
         <Style.CardContainer>
           {categories.map((category) => {

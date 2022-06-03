@@ -2,17 +2,56 @@ import styled from 'styled-components';
 import STYLES from '../../constants/styles';
 import { Link } from 'react-router-dom';
 
+import backgroundSmall from './../../assets/images/background.png';
+
 
 export const Nav = styled.nav`
   background-color: ${STYLES.colors.colorwhiteSecondary};
   display: flex;
   flex-direction: column;
   gap: 2rem;
+
+  @media screen and (max-width: 1115px) {
+    flex-direction: row;
+
+    > * {
+      flex: 1;
+    }
+  }
+
 `;
+
+export const LogoContainer = styled.div`
+  height: 16.6rem;
+  width: 25.5rem;
+  border-radius: ${STYLES.effects.borderRadius};
+  background-image: url(${backgroundSmall});
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+`;
+
+export const H1 = styled.h1`
+  font-size: 2rem;
+  color: ${STYLES.colors.colorwhitePrimary};
+  font-weight: 500;
+  padding-left: 1.8rem;
+`;
+
+export const P = styled.p`
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: ${STYLES.colors.colorwhitePrimary};
+  padding-left: 1.8rem;
+  padding-bottom: 1.8rem;
+`;
+
 
 export const Card = styled.div`
   background-color: ${STYLES.colors.colorwhitePrimary};
-  min-height: 16.6rem;
+  height: 16.6rem;
   width: 25.5rem;
   border-radius: ${STYLES.effects.borderRadius};
 `;

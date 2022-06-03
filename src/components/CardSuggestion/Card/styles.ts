@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import STYLES from '../../../constants/styles';
 import { Link } from 'react-router-dom';
 import { Badge } from '../../../shared/sharedComponents';
+
 export const Card = styled.article`
   background-color: white;
   border-radius: ${STYLES.effects.borderRadius};
