@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import GlobalStyles from './global/GlobalStyles';
 import Home from './pages/Home';
-import CreateSuggestion from './pages/CreateSuggestion';
+import AddFeedback from './pages/AddFeedback';
+
 function App() {
   return (
     <>
@@ -9,7 +10,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/create-suggestion' element={<CreateSuggestion />} />
+          <Route path='/add-feedback' element={<AddFeedback />} />
         </Routes>
       </Router>
     </>

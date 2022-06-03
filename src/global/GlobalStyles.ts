@@ -22,9 +22,10 @@ body {
   min-height: 100vh;
 }
 
-button, input-security, textarea {
+button, input, textarea {
   font-family: inherit;
-  
+  color: ${STYLES.colors.colorGrayAccent};
+  font-size: 1.4rem;
 }
 
 

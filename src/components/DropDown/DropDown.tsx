@@ -1,10 +1,13 @@
-import { useState } from 'react';
 import * as Style from './style';
 import DropDownIcon from '../Svgs/DropDownIcon';
 import { dropdownOptions } from '../../utils/data';
 import { useSelector, useDispatch } from 'react-redux';
+import { sortData } from '../../store/slices/dataSlice';
 
-import { changeDropDownItem, toggleDropDown } from '../../store/slices/dropDownSlice';
+import {
+  changeDropDownItem,
+  toggleDropDown,
+} from '../../store/slices/dropDownSlice';
 
 import { RootState } from '../../store/store';
 import CheckIcon from '../Svgs/CheckIcon';
@@ -15,6 +18,11 @@ const DropDown = () => {
   );
 
   const dispatch = useDispatch();
+
+  const handleDispatch = (option: string) => {
+    dispatch(changeDropDownItem(option));
+    dispatch(sortData(option));
+  };
 
   return (
     <Style.Container>
@@ -33,7 +41,7 @@ const DropDown = () => {
               <Style.Li key={option}>
                 <Style.ButtonItem
                   className={dropItemSelected === option ? 'active' : undefined}
-                  onClick={() => dispatch(changeDropDownItem(option))}
+                  onClick={() => handleDispatch(option)}
                 >
                   {option} {dropItemSelected === option && <CheckIcon />}
                 </Style.ButtonItem>

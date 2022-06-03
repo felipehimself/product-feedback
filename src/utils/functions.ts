@@ -1,9 +1,6 @@
 import { IData } from './../interfaces/DataInterface';
 
-export const handleData = (
-  data: IData[],
-  termToFilter: string
-): IData[] => {
+export const handleData = (data: IData[], termToFilter: string): IData[] => {
   switch (termToFilter) {
     case 'all':
       return data;
@@ -24,6 +21,12 @@ export const handleData = (
       return data.filter((suggestion) => suggestion.category === 'enhancement');
 
     default:
-      return data
+      return data;
   }
+};
+
+export const uuid = (): string => {
+  const head = Date.now().toString(36);
+  const tail = Math.random().toString(36).substring(2);
+  return head + tail;
 };

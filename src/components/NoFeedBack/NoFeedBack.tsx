@@ -1,5 +1,5 @@
 import * as Style from './styles';
-import { H1, P, Button } from '../../shared/sharedComponents';
+import { H1, P, Navigate } from '../../shared/sharedComponents';
 import NoFeedbackIcon from '../Svgs/NoFeedbackIcon';
 import STYLES from '../../constants/styles';
 const NoFeedBack = () => {
@@ -11,7 +11,7 @@ const NoFeedBack = () => {
         Got a suggestion? Found a bug that needs to be squashed? We love hearing
         about new ideas to improve our app.
       </P>
-      <Button bgColor={STYLES.colors.colorPurple}>+ Add Feedback</Button>
+      <Navigate to='add-feedback'>+ Add Feedback</Navigate>
     </Style.Section>
   );
 };

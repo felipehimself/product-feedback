@@ -1,6 +1,6 @@
 import * as Style from './styles';
 import STYLES from '../../constants/styles';
-import { Button } from '../../shared/sharedComponents';
+import { Navigate } from '../../shared/sharedComponents';
 import LampIcon from '../Svgs/LampIcon';
 
 import { useSelector } from 'react-redux';
@@ -26,7 +26,7 @@ const Topbar = () => {
           <Style.H2>{dataLength()} Suggestions</Style.H2>
         </Style.FlexContainer>
         <DropDown />
-        <Button bgColor={STYLES.colors.colorPurple}>+ Add Feedback</Button>
+        <Navigate to='add-feedback'>+ Add Feedback</Navigate>
       </Style.Container>
     </Style.Topbar>
   );

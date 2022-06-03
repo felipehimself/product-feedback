@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import STYLES from '../constants/styles';
-
+import { Link } from 'react-router-dom';
 export const Container = styled.div`
   max-width: 110rem;
   margin: 0 auto;
@@ -62,15 +62,16 @@ export const Badge = styled.button<IBadge>`
   }
 `;
 
-interface IButton {
-  bgColor: string;
+interface INavigate {
+  background?: string;
 }
 
-export const Button = styled.button<IButton>`
+export const Navigate = styled(Link)<INavigate>`
+  background-color: ${(props) => props.background || STYLES.colors.colorPurple};
+  text-decoration: none;
   font-size: 1.4rem;
   border: none;
   font-weight: 500;
-  background-color: ${(props) => props.bgColor};
   padding: 1.2rem 2rem;
   color: ${STYLES.colors.colorwhitePrimary};
   cursor: pointer;
@@ -78,7 +79,7 @@ export const Button = styled.button<IButton>`
   transition: all 0.2s ease;
 
   :hover {
-    opacity: 0.6;
+    opacity: 0.9;
     filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
   }
 `;
@@ -105,7 +106,28 @@ export const P = styled.p<IP>`
   font-size: 1.6rem;
   color: ${STYLES.colors.colorGrayAccent};
   max-width: ${(props) => props.maxWidth};
-  text-align: ${(props)=> props.align};
-  margin: ${(props)=> props.margin};
+  text-align: ${(props) => props.align};
+  margin: ${(props) => props.margin};
+`;
 
+interface IButton {
+  background?: string;
+}
+
+export const Button = styled.button<IButton>`
+  background-color: ${(props) => props.background || STYLES.colors.colorPurple};
+  text-decoration: none;
+  font-size: 1.4rem;
+  border: none;
+  font-weight: 500;
+  padding: 1.2rem 2rem;
+  color: ${STYLES.colors.colorwhitePrimary};
+  cursor: pointer;
+  border-radius: ${STYLES.effects.borderRadius};
+  transition: all 0.2s ease;
+
+  :hover {
+    opacity: 0.9;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+  }
 `;

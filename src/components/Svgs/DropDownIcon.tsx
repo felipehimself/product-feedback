@@ -1,6 +1,7 @@
-
-
-const DropDownIcon: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
+const DropDownIcon: React.FC<{ isOpen: boolean; color?: string }> = ({
+  isOpen,
+  color,
+}) => {
   return (
     <svg
       width='10'
@@ -11,7 +12,7 @@ const DropDownIcon: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
       <path
         className='dd-btn__down-arrow'
         d='M1 1.5l4 4 4-4'
-        stroke='#fff'
+        stroke={color || '#fff'}
         strokeWidth='2'
         fill='none'
         fillRule='evenodd'

@@ -37,6 +37,7 @@ export const Ul = styled.ul`
   border-radius: ${STYLES.effects.borderRadius};
   box-shadow: 0 10px 40px -7px rgb(55 63 104 / 35%);
   width: 60%;
+  z-index: 100;
   
 `;
 
