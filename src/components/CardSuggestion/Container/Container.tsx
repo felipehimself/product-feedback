@@ -2,7 +2,7 @@ import { IData } from '../../../interfaces/DataInterface';
 import { Container } from './style';
 import Card from '../Card/Card';
 
-const List: React.FC<{ data: IData[] }> = ({ data }) => {
+const Cards: React.FC<{ data: IData[] }> = ({ data }) => {
   return (
     <Container>
       {data.map((suggestion) => {
@@ -11,4 +11,4 @@ const List: React.FC<{ data: IData[] }> = ({ data }) => {
     </Container>
   );
 };
-export default List;
+export default Cards;

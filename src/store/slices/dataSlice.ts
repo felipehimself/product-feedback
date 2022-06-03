@@ -11,9 +11,19 @@ const dataSlice = createSlice({
     getData: (state, action) => {
       state.data = action.payload;
     },
+
+    incrementVote: (state, action) => {
+      state.data = state.data.map((suggestion) => {
+        if (suggestion.id === action.payload) {
+          return { ...suggestion, votes: suggestion.votes + 1 };
+        }
+
+        return suggestion;
+      });
+    },
   },
 });
 
-export const { getData } = dataSlice.actions;
+export const { getData, incrementVote } = dataSlice.actions;
 
 export default dataSlice.reducer;

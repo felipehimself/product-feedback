@@ -16,7 +16,21 @@ export const FlexContainer = styled.div`
   gap: 2rem;
 `;
 
-export const Badge = styled.button`
+interface IBadge {
+  noHover?: boolean;
+}
+
+export const Badge = styled.button<IBadge>`
+  &.active {
+    background: ${STYLES.colors.colorBluePrimary};
+    color: ${STYLES.colors.colorwhitePrimary};
+  }
+
+  &.active:hover {
+    background: ${STYLES.colors.colorBluePrimary};
+    color: ${STYLES.colors.colorwhitePrimary};
+  }
+
   cursor: pointer;
   border: none;
   padding: 0.6rem 1.6rem;
@@ -29,7 +43,8 @@ export const Badge = styled.button`
   transition: all 0.2s ease;
 
   :hover {
-    background: ${STYLES.colors.colorGrayTertiary};
+    background: ${(props) =>
+      props.noHover ? undefined : STYLES.colors.colorGrayTertiary};
   }
 `;
 

@@ -16,7 +16,7 @@ html {
 
 body {
   background-color: ${STYLES.colors.colorwhiteSecondary};
- 
+  min-height: 100vh;
 }
 
 button, input-security, textarea {
@@ -27,4 +27,4 @@ button, input-security, textarea {
 
 `;
 
-export default GlobalStyles
+export default GlobalStyles;

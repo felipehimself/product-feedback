@@ -18,6 +18,7 @@ export interface IData {
   title: string;
   category: string;
   detail: string;
+  status:string;
   votes: number;
   id: number;
   comments: IComment[];

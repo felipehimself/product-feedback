@@ -15,6 +15,7 @@ export const Container = styled.div`
   padding: 1.4rem 3rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 export const FlexContainer = styled.div`

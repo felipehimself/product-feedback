@@ -14,6 +14,14 @@ import roxanneImg from './../assets/images/image-roxanne.jpg';
 
 export const categories = ['all', 'feature', 'UI', 'UX', 'enhancement', 'bug'];
 export const status = ['suggestion', 'planned', 'in-progress', 'live'];
+
+export const dropdownOptions = [
+  'most upvotes',
+  'least upvotes',
+  'most comments',
+  'least comments',
+];
+
 const data = [
   {
     title: 'More comprehensive reports',
@@ -71,7 +79,6 @@ const data = [
   {
     title: 'Add a dark theme option',
     status: 'suggestion',
-
     category: 'feature',
     detail:
       'It would help people with light sensitivities and who prefer dark mode.',
@@ -116,8 +123,8 @@ const data = [
 
   {
     title: 'Add micro-interactions',
-    status: 'Live',
-    category: 'Enhancement',
+    status: 'live',
+    category: 'enhancement',
     detail: 'Small animations at specific points can add delight.',
     votes: 71,
     id: 4,
@@ -146,7 +153,7 @@ const data = [
     title: 'Q&A within the challenge hubs',
     status: 'suggestion',
 
-    category: 'Feature',
+    category: 'feature',
     detail: 'Challenge-specific Q&A would make for easy reference.',
     votes: 65,
     id: 5,
@@ -163,8 +170,8 @@ const data = [
   },
   {
     title: 'One-click portfolio generation',
-    status: 'In-Progress',
-    category: 'Feature',
+    status: 'in-progress',
+    category: 'feature',
     detail:
       'Add ability to create professional looking portfolio from profile.',
     votes: 62,
@@ -185,7 +192,7 @@ const data = [
     title: 'Add image/video upload to feedback',
     status: 'suggestion',
 
-    category: 'Enhancement',
+    category: 'enhancement',
     detail: 'Images and screencasts can enhance comments on solutions.',
     votes: 51,
     id: 7,
@@ -214,7 +221,7 @@ const data = [
     title: 'Ability to follow others',
     status: 'suggestion',
 
-    category: 'Feature',
+    category: 'feature',
     detail: 'Stay updated on comments and solutions other people post.',
     votes: 42,
     id: 8,
@@ -250,8 +257,8 @@ const data = [
 
   {
     title: 'Bookmark challenges',
-    status: 'In-progress',
-    category: 'Feature',
+    status: 'in-progress',
+    category: 'feature',
     detail: 'Be able to bookmark challenges to take later on.',
     votes: 31,
     id: 9,
@@ -270,7 +277,7 @@ const data = [
   {
     title: 'Learning paths',
     status: 'planned',
-    category: 'Feature',
+    category: 'feature',
     detail: 'Sequenced projects for different goals to help people improve.',
     votes: 28,
     id: 10,
@@ -288,8 +295,8 @@ const data = [
 
   {
     title: 'Animated solution screenshots',
-    status: 'In-progress',
-    category: 'Bug',
+    status: 'in-progress',
+    category: 'bug',
     detail: "Screenshots of solutions with animations don't display correctly.",
     votes: 9,
     id: 11,
@@ -299,7 +306,7 @@ const data = [
   {
     title: 'Preview images not loading',
     status: 'suggestion',
-    category: 'Bug',
+    category: 'bug',
     detail: 'Challenge preview images are missing when you apply a filter.',
     votes: 3,
     id: 12,

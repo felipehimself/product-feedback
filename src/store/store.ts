@@ -1,11 +1,13 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit';
 
-import dataSlice from "./slices/dataSlice";
-
+import dataSlice from './slices/dataSlice';
+import filterListSlice from './slices/filterListSlice';
+import dropDownSlice from './slices/dropDownSlice';
 const store = configureStore({
   reducer: {
     data: dataSlice,
-    
+    filterTerm: filterListSlice,
+    dropDownSelected: dropDownSlice
   },
 });
 
