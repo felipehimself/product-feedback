@@ -21,7 +21,6 @@ const Navbar = () => {
   ).length;
   const liveAmount = data.filter((item) => item.status === 'live').length;
 
-  console.log(data);
   return (
     <Style.Nav>
       <Style.LogoContainer>

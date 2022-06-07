@@ -11,6 +11,7 @@ import vicImg from './../assets/images/image-victoria.jpg';
 import georgeImg from './../assets/images/image-george.jpg';
 import javierImg from './../assets/images/image-javier.jpg';
 import roxanneImg from './../assets/images/image-roxanne.jpg';
+import { uuid } from './functions';
 
 export const categories = ['all', 'feature', 'UI', 'UX', 'enhancement', 'bug'];
 export const status = ['suggestion', 'planned', 'in-progress', 'live'];
@@ -22,6 +23,7 @@ export const dropdownOptions = [
   'least comments',
 ];
 
+
 const data = [
   {
     title: 'More comprehensive reports',
@@ -29,9 +31,10 @@ const data = [
     category: 'feature',
     detail: 'It would be great to see a more detailed breakdown of solutions.',
     votes: 123,
-    id: 1,
+    id: uuid(),
     comments: [
       {
+        showReplyField: false,
         userName: 'Victoria Mejia',
         userLogin: 'arlen_the_marlin',
         img: victoriaImg,
@@ -40,6 +43,7 @@ const data = [
         replies: [],
       },
       {
+        showReplyField: false,
         userName: 'Jackson Barker',
         userLogin: 'countryspirit',
         img: jackImg,
@@ -49,15 +53,17 @@ const data = [
       },
     ],
   },
+
   {
     title: 'Add tags for solutions',
     status: 'suggestion',
     category: 'enhancement',
     detail: 'Easier to search for solutions based on a specific stack',
     votes: 112,
-    id: 2,
+    id: uuid(),
     comments: [
       {
+        showReplyField: false,
         userName: 'Suzanne Chang',
         userLogin: 'upbeat1811',
         img: suzaneImg,
@@ -66,6 +72,7 @@ const data = [
         replies: [],
       },
       {
+        showReplyField: false,
         userName: 'Thomas Hood',
         userLogin: 'brawnybrave',
         img: thomasImg,
@@ -83,9 +90,10 @@ const data = [
     detail:
       'It would help people with light sensitivities and who prefer dark mode.',
     votes: 99,
-    id: 3,
+    id: uuid(),
     comments: [
       {
+        showReplyField: false,
         userName: 'Elijah Moss',
         userLogin: 'hexagon.bestagon',
         img: elijahImg,
@@ -94,6 +102,7 @@ const data = [
         replies: [],
       },
       {
+        showReplyField: false,
         userName: 'James Skinner',
         userLogin: 'hummingbird1',
         img: jamesImg,
@@ -127,9 +136,10 @@ const data = [
     category: 'enhancement',
     detail: 'Small animations at specific points can add delight.',
     votes: 71,
-    id: 4,
+    id: uuid(),
     comments: [
       {
+        showReplyField: false,
         userName: 'Victoria Mejia',
         userLogin: 'arlen_the_marlin',
         img: vicImg,
@@ -156,9 +166,10 @@ const data = [
     category: 'feature',
     detail: 'Challenge-specific Q&A would make for easy reference.',
     votes: 65,
-    id: 5,
+    id: uuid(),
     comments: [
       {
+        showReplyField: false,
         userName: 'George Partridge',
         userLogin: 'soccerviewer8',
         img: georgeImg,
@@ -175,9 +186,10 @@ const data = [
     detail:
       'Add ability to create professional looking portfolio from profile.',
     votes: 62,
-    id: 6,
+    id: uuid(),
     comments: [
       {
+        showReplyField: false,
         userName: 'Ryan Welles',
         userLogin: 'voyager.344',
         img: ryanImg,
@@ -195,9 +207,10 @@ const data = [
     category: 'enhancement',
     detail: 'Images and screencasts can enhance comments on solutions.',
     votes: 51,
-    id: 7,
+    id: uuid(),
     comments: [
       {
+        showReplyField: false,
         userName: 'Javier Pollard',
         userLogin: 'warlikeduke',
         img: javierImg,
@@ -207,6 +220,7 @@ const data = [
       },
 
       {
+        showReplyField: false,
         userName: 'Roxanne Travis',
         userLogin: 'peppersprime32',
         img: roxanneImg,
@@ -220,13 +234,13 @@ const data = [
   {
     title: 'Ability to follow others',
     status: 'suggestion',
-
     category: 'feature',
     detail: 'Stay updated on comments and solutions other people post.',
     votes: 42,
-    id: 8,
+    id: uuid(),
     comments: [
       {
+        showReplyField: false,
         userName: 'Victoria Mejia',
         userLogin: 'arlen_the_marlin',
         img: vicImg,
@@ -245,6 +259,7 @@ const data = [
       },
 
       {
+        showReplyField: false,
         userName: 'Jackson Barker',
         userLogin: 'countryspirit',
         img: jackImg,
@@ -261,9 +276,10 @@ const data = [
     category: 'feature',
     detail: 'Be able to bookmark challenges to take later on.',
     votes: 31,
-    id: 9,
+    id: uuid(),
     comments: [
       {
+        showReplyField: false,
         userName: 'Suzanne Chang',
         userLogin: 'upbeat1811',
         img: suzaneImg,
@@ -280,9 +296,10 @@ const data = [
     category: 'feature',
     detail: 'Sequenced projects for different goals to help people improve.',
     votes: 28,
-    id: 10,
+    id: uuid(),
     comments: [
       {
+        showReplyField: false,
         userName: 'George Partridge',
         userLogin: 'soccerviewer8',
         img: georgeImg,
@@ -299,7 +316,7 @@ const data = [
     category: 'bug',
     detail: "Screenshots of solutions with animations don't display correctly.",
     votes: 9,
-    id: 11,
+    id: uuid(),
     comments: [],
   },
 
@@ -309,7 +326,7 @@ const data = [
     category: 'bug',
     detail: 'Challenge preview images are missing when you apply a filter.',
     votes: 3,
-    id: 12,
+    id: uuid(),
     comments: [],
   },
 ];

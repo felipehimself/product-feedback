@@ -77,6 +77,8 @@ export const Navigate = styled(Link)<INavigate>`
   cursor: pointer;
   border-radius: ${STYLES.effects.borderRadius};
   transition: all 0.2s ease;
+  min-width: 10.4rem;
+  text-align: center;
 
   :hover {
     opacity: 0.9;
@@ -86,6 +88,12 @@ export const Navigate = styled(Link)<INavigate>`
 
 export const H1 = styled.h1`
   font-size: 2.4rem;
+  font-weight: 700;
+  color: ${STYLES.colors.colorGraySecondary};
+`;
+
+export const H2 = styled.h2`
+  font-size: 1.8rem;
   font-weight: 700;
   color: ${STYLES.colors.colorGraySecondary};
 `;
@@ -100,10 +108,11 @@ interface IP {
   maxWidth?: string;
   align?: string;
   margin?: string;
+  size?: string;
 }
 
 export const P = styled.p<IP>`
-  font-size: 1.6rem;
+  font-size: ${(props) => props.size || '1.6rem'};
   color: ${STYLES.colors.colorGrayAccent};
   max-width: ${(props) => props.maxWidth};
   text-align: ${(props) => props.align};
@@ -125,6 +134,7 @@ export const Button = styled.button<IButton>`
   cursor: pointer;
   border-radius: ${STYLES.effects.borderRadius};
   transition: all 0.2s ease;
+  min-width: 10.4rem;
 
   :hover {
     opacity: 0.9;

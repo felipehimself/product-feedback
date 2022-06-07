@@ -59,9 +59,92 @@ const dataSlice = createSlice({
     addSuggestion: (state, action) => {
       state.data.push(action.payload);
     },
+
+    toggleReplyField: (state, action) => {
+      state.data = state.data.map((item) => {
+        if (item.id === action.payload.id) {
+          return {
+            ...item,
+            comments: item.comments.map((item2) => {
+              if (item2.userName === action.payload.userName) {
+                return { ...item2, showReplyField: !item2.showReplyField };
+              }
+
+              return item2;
+            }),
+          };
+        }
+
+        return item;
+      });
+    },
+
+    addComment: (state, action) => {
+      state.data = state.data.map((item) => {
+        if (item.id === action.payload.id) {
+          return {
+            ...item,
+            comments: [...item.comments, action.payload.comment],
+          };
+        }
+
+        return item;
+      });
+    },
+
+    addReply: (state, action) => {
+      state.data = state.data.map((item) => {
+        if (item.id === action.payload.id) {
+          return {
+            ...item,
+            comments: item.comments.map((item2) => {
+              if (item2.userLogin === action.payload.userLogin) {
+                return {
+                  ...item2,
+                  showReplyField: false,
+                  replies: [...item2.replies, action.payload.data],
+                };
+              }
+
+              return item2;
+            }),
+          };
+        }
+        return item;
+      });
+    },
+
+    deleteSuggestion: (state, action) => {
+      state.data = state.data.filter((item) => item.id !== action.payload);
+    },
+
+    editSuggestion: (state, action) => {
+      state.data = state.data.map((item) => {
+        if (item.id === action.payload.id) {
+          return {
+            ...item,
+            title: action.payload.title,
+            category: action.payload.category,
+            status: action.payload.status,
+            detail: action.payload.detail,
+          };
+        }
+
+        return item;
+      });
+    },
   },
 });
 
-export const { incrementVote, sortData, addSuggestion } = dataSlice.actions;
+export const {
+  incrementVote,
+  sortData,
+  addSuggestion,
+  addComment,
+  toggleReplyField,
+  addReply,
+  editSuggestion,
+  deleteSuggestion,
+} = dataSlice.actions;
 
 export default dataSlice.reducer;

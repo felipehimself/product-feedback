@@ -1,61 +1,70 @@
 import { useState } from 'react';
 import * as Style from './styles';
 import STYLES from '../../constants/styles';
-import ArrowLeftIon from '../Svgs/ArrowLeftIon';
-import { H1, Button } from '../../shared/sharedComponents';
-import { Navigate } from '../../shared/sharedComponents';
+import { H1, Button, Navigate } from '../../shared/sharedComponents';
+
 import { categories } from '../../utils/data';
-import DropDownIcon from '../Svgs/DropDownIcon';
+import { uuid } from '../../utils/functions';
 import { useDispatch } from 'react-redux';
 import { addSuggestion } from '../../store/slices/dataSlice';
-import { uuid } from '../../utils/functions';
 import { useNavigate } from 'react-router-dom';
+
+import { IData } from '../../interfaces/DataInterface';
+
+import DropDownIcon from '../Svgs/DropDownIcon';
+import ArrowLeftIon from '../Svgs/ArrowLeftIon';
+import CheckIcon from '../Svgs/CheckIcon';
 
 const filteredCategories = categories.filter((category) => category !== 'all');
 
-const Form = () => {
-  const [selectedCategory, setSelectedCategory] = useState('feature');
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+const FormAdd = () => {
   const [isOpenCategories, setIsOpenCategories] = useState(false);
-  const [message, setMessage] = useState('');
-  const [error, setError] = useState(false);
+  const [message, setMessage] = useState({ msg: '', isError: false });
+  const [suggestion, setSuggestion] = useState<IData | null>({
+    title: '',
+    category: 'feature',
+    detail: '',
+    comments: [],
+    id: uuid(),
+    status: 'suggestion',
+    votes: 0,
+  });
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSelect = (category: string) => {
-    setSelectedCategory(category);
-    setIsOpenCategories(false);
+  const handleChange = (e: any) => {
+    const { name, value } = e.target;
+
+    setSuggestion((prev: any) => {
+      return { ...prev, [name]: value };
+    });
+
+    if (name === 'category') {
+      setIsOpenCategories(false);
+    }
   };
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    setError(false)
+    setMessage({ msg: '', isError: false });
 
-    if (title === '' || description === '') {
-      setMessage('All fields are required');
-      setError(true)
+    if (suggestion?.title === '' || suggestion?.detail === '') {
+      setMessage({ msg: 'All fields are required', isError: true });
       return;
     }
 
-    setMessage('Suggestion has been sent!');
-
-    dispatch(
-      addSuggestion({
-        title: title,
-        status: 'planned',
-        category: selectedCategory,
-        detail: description,
-        votes: 0,
-        id: uuid(),
-        comments: [],
-      })
-    );
-
-    setTitle('');
-    setSelectedCategory('feature');
-    setDescription('');
+    setMessage({ msg: 'Suggestion has been sent!', isError: false });
+    dispatch(addSuggestion(suggestion));
+    setSuggestion({
+      title: '',
+      category: 'feature',
+      detail: '',
+      comments: [],
+      id: uuid(),
+      status: 'suggestion',
+      votes: 0,
+    });
     setIsOpenCategories(false);
 
     setTimeout(() => {
@@ -77,9 +86,9 @@ const Form = () => {
           <Style.Label htmlFor='title'>Feedback title</Style.Label>
           <Style.Span>Add a short, descriptive headline</Style.Span>
           <Style.Input
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={handleChange}
             id='title'
-            value={title || ''}
+            value={suggestion?.title || ''}
           />
         </Style.FormControl>
         <Style.FormControl>
@@ -90,7 +99,7 @@ const Form = () => {
               type='button'
               onClick={() => setIsOpenCategories((prev) => !prev)}
             >
-              {selectedCategory}{' '}
+              {suggestion?.category}
               <DropDownIcon color='#4661E6' isOpen={isOpenCategories} />
             </Style.Selected>
 
@@ -98,12 +107,20 @@ const Form = () => {
               <Style.Ul>
                 {filteredCategories.map((category) => {
                   return (
-                    <Style.Li>
+                    <Style.Li key={category}>
                       <Style.ButtonItem
                         type='button'
-                        onClick={() => handleSelect(category)}
+                        onClick={handleChange}
+                        name='category'
+                        value={category}
+                        className={
+                          suggestion?.category === category
+                            ? 'active'
+                            : undefined
+                        }
                       >
                         {category}
+                        {suggestion?.category === category && <CheckIcon />}
                       </Style.ButtonItem>
                     </Style.Li>
                   );
@@ -119,13 +136,14 @@ const Form = () => {
             etc.
           </Style.Span>
           <Style.Textarea
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={handleChange}
+            name='detail'
             id='detail'
-            value={description || ''}
+            value={suggestion?.detail || ''}
           />
         </Style.FormControl>
-        <Style.P className={error ? 'error' : undefined}>
-          {message.length > 0 && message}
+        <Style.P className={message?.isError ? 'error' : undefined}>
+          {message?.msg?.length > 0 && message?.msg}
         </Style.P>
         <Style.FormControl
           margin='1rem 0 0 0'
@@ -145,4 +163,4 @@ const Form = () => {
     </Style.FormContainer>
   );
 };
-export default Form;
+export default FormAdd;

@@ -1,4 +1,4 @@
-import Form from '../components/Form/Form';
+import Form from '../components/FormAdd/FormAdd';
 
 const CreateFeedBack = () => {
   return <Form />;
