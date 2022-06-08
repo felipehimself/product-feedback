@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import STYLES from '../constants/styles';
+import STYLES from '../../constants/styles';
 import { Link } from 'react-router-dom';
+
 export const Container = styled.div`
   max-width: 110rem;
   margin: 0 auto;
@@ -10,12 +11,19 @@ export const Container = styled.div`
   @media screen and (max-width: 1115px) {
     max-width: 90rem;
   }
+
+  @media screen and (max-width: 850px) {
+    margin-top: 16rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    margin-top: 14rem;
+  }
 `;
 
 export const Main = styled.main`
   flex: 1;
   display: flex;
-  /* align-items: center; */
   flex-direction: column;
   gap: 1rem;
 `;
@@ -141,3 +149,4 @@ export const Button = styled.button<IButton>`
     filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
   }
 `;
+

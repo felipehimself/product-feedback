@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
-import Header from '../components/Header/Header';
-import { FlexContainer, Main, Container } from '../shared/sharedComponents';
-import Topbar from '../components/Topbar/Topbar';
-import CardsContainer from '../components/CardSuggestion/Container/Container';
-import NoFeedBack from '../components/NoFeedBack/NoFeedBack';
+import { FlexContainer, Main, Container } from '../../components/shared/shared';
+import Topbar from '../../components/Topbar/Topbar';
+import CardsContainer from '../../components/CardSuggestion/Container/Container';
+import NoFeedBack from '../../components/NoFeedBack/NoFeedBack';
 import { useSelector } from 'react-redux';
-import { RootState } from '../store/store';
-
-import { handleData } from '../utils/functions';
+import { RootState } from '../../store/store';
+import Navbar from '../../components/Nav/Navbar';
+import { handleData } from '../../utils/functions';
 
 const Home = () => {
   const { data } = useSelector((state: RootState) => state.data);
@@ -22,7 +21,7 @@ const Home = () => {
   return (
     <Container>
       <FlexContainer>
-        <Header />
+        <Navbar />
         <Main>
           <Topbar />
           {dataToDisplay.length !== 0 ? (

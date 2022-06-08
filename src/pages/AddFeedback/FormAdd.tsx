@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import * as Style from './styles';
 import STYLES from '../../constants/styles';
-import { H1, Button, Navigate } from '../../shared/sharedComponents';
-
+import { H1, Button, Navigate } from '../../components/shared/shared';
+import Goback from '../../components/GoBack/Goback';
 import { categories } from '../../utils/data';
 import { uuid } from '../../utils/functions';
 import { useDispatch } from 'react-redux';
@@ -11,9 +11,8 @@ import { useNavigate } from 'react-router-dom';
 
 import { IData } from '../../interfaces/DataInterface';
 
-import DropDownIcon from '../Svgs/DropDownIcon';
-import ArrowLeftIon from '../Svgs/ArrowLeftIon';
-import CheckIcon from '../Svgs/CheckIcon';
+import DropDownIcon from '../../components/Svgs/DropDownIcon';
+import CheckIcon from '../../components/Svgs/CheckIcon';
 
 const filteredCategories = categories.filter((category) => category !== 'all');
 
@@ -56,18 +55,19 @@ const FormAdd = () => {
 
     setMessage({ msg: 'Suggestion has been sent!', isError: false });
     dispatch(addSuggestion(suggestion));
-    setSuggestion({
-      title: '',
-      category: 'feature',
-      detail: '',
-      comments: [],
-      id: uuid(),
-      status: 'suggestion',
-      votes: 0,
-    });
+
     setIsOpenCategories(false);
 
     setTimeout(() => {
+      setSuggestion({
+        title: '',
+        category: 'feature',
+        detail: '',
+        comments: [],
+        id: uuid(),
+        status: 'suggestion',
+        votes: 0,
+      });
       navigate('/');
     }, 2000);
   };
@@ -75,10 +75,7 @@ const FormAdd = () => {
   return (
     <Style.FormContainer>
       <Style.FormHeader>
-        <Style.Navigate to='/'>
-          <ArrowLeftIon />
-          Go Back
-        </Style.Navigate>
+        <Goback to='/' />
       </Style.FormHeader>
       <Style.Form>
         <H1>Create New Feedback</H1>
@@ -87,6 +84,7 @@ const FormAdd = () => {
           <Style.Span>Add a short, descriptive headline</Style.Span>
           <Style.Input
             onChange={handleChange}
+            name='title'
             id='title'
             value={suggestion?.title || ''}
           />
@@ -100,7 +98,10 @@ const FormAdd = () => {
               onClick={() => setIsOpenCategories((prev) => !prev)}
             >
               {suggestion?.category}
-              <DropDownIcon color='#4661E6' isOpen={isOpenCategories} />
+              <DropDownIcon
+                color={STYLES.colors.colorBluePrimary}
+                isOpen={isOpenCategories}
+              />
             </Style.Selected>
 
             {isOpenCategories && (

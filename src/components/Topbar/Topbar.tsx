@@ -1,6 +1,5 @@
 import * as Style from './styles';
-import STYLES from '../../constants/styles';
-import { Navigate } from '../../shared/sharedComponents';
+import { Navigate } from '../shared/shared';
 import LampIcon from '../Svgs/LampIcon';
 
 import { useSelector } from 'react-redux';
@@ -23,7 +22,7 @@ const Topbar = () => {
       <Style.Container>
         <Style.FlexContainer>
           <LampIcon />
-          <Style.H2>{dataLength()} Suggestions</Style.H2>
+          <Style.Title>{dataLength()} Suggestions</Style.Title>
         </Style.FlexContainer>
         <DropDown />
         <Navigate to='add-feedback'>+ Add Feedback</Navigate>

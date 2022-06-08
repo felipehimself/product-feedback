@@ -1,11 +1,11 @@
 import * as Style from './styles';
 import { IData } from '../../../interfaces/DataInterface';
-import { P } from '../../../shared/sharedComponents';
-import { Badge } from '../../../shared/sharedComponents';
-import ArrowUpIcon from '../../Svgs/ArrowUpIcon';
+import { P } from '../../shared/shared';
+import { Badge } from '../../shared/shared';
 import CommentIcon from '../../Svgs/CommentIcon';
 import { incrementVote } from '../../../store/slices/dataSlice';
 import { useDispatch } from 'react-redux';
+import Upvote from '../../Upvote/Upvote';
 
 const Card: React.FC<IData> = ({
   category,
@@ -16,14 +16,15 @@ const Card: React.FC<IData> = ({
   votes,
 }) => {
   const dispatch = useDispatch();
-  
+
   return (
     <Style.Card>
       <Style.Item>
-        <Style.Button onClick={() => dispatch(incrementVote(id))}>
-          <ArrowUpIcon />
-          {votes}
-        </Style.Button>
+        <Upvote
+          direction='column'
+          votes={votes}
+          onClick={() => dispatch(incrementVote(id))}
+        />
       </Style.Item>
       <Style.Item display='flex' direction='column'>
         <Style.NavLink to={`/feedback-details/${id}`}>{title}</Style.NavLink>

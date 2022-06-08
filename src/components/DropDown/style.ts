@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import STYLES from '../../constants/styles';
 
-export const Container = styled.div`
+export const DropdownContainer = styled.div`
   flex: 1;
   position: relative;
-  margin-left: 4rem;
+  z-index: 1;
 `;
 
 interface ISpan {
@@ -36,7 +36,7 @@ export const Ul = styled.ul`
   background-color: ${STYLES.colors.colorwhitePrimary};
   border-radius: ${STYLES.effects.borderRadius};
   box-shadow: 0 10px 40px -7px rgb(55 63 104 / 35%);
-  width: 60%;
+  width: 70%;
   z-index: 100;
   
 `;

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import * as Style from './styles';
 import STYLES from '../../constants/styles';
-import { H1, Button, Navigate } from '../../shared/sharedComponents';
+import { H1, Button, Navigate } from '../../components/shared/shared';
 import { categories, status } from '../../utils/data';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteSuggestion, editSuggestion } from '../../store/slices/dataSlice';
@@ -9,10 +9,10 @@ import { RootState } from '../../store/store';
 import { useNavigate, useParams } from 'react-router-dom';
 import { IData } from '../../interfaces/DataInterface';
 
-import ArrowLeftIcon from '../Svgs/ArrowLeftIon';
-import PencilIcon from '../Svgs/PencilIcon';
-import DropDownIcon from '../Svgs/DropDownIcon';
-import CheckIcon from '../Svgs/CheckIcon';
+import ArrowLeftIcon from '../../components/Svgs/ArrowLeftIcon';
+import PencilIcon from '../../components/Svgs/PencilIcon';
+import DropDownIcon from '../../components/Svgs/DropDownIcon';
+import CheckIcon from '../../components/Svgs/CheckIcon';
 
 const filteredCategories = categories.filter((category) => category !== 'all');
 
@@ -66,12 +66,13 @@ const FormEdit = () => {
       })
     );
 
-    setSuggestion(null);
+    
 
     setIsOpenCategories(false);
     setMessage({ msg: 'Suggestion has been edited!', isError: false });
 
     setTimeout(() => {
+      setSuggestion(null);
       navigate('/');
     }, 2000);
   };
@@ -79,8 +80,9 @@ const FormEdit = () => {
   const handleDelete = () => {
     dispatch(deleteSuggestion(id));
     setMessage({ msg: 'Suggestion has been deleted!', isError: false });
-    setSuggestion(null);
+    
     setTimeout(() => {
+      setSuggestion(null);
       navigate('/');
     }, 2000);
   };
@@ -116,7 +118,10 @@ const FormEdit = () => {
               onClick={() => setIsOpenCategories((prev) => !prev)}
             >
               {suggestion?.category}
-              <DropDownIcon color='#4661E6' isOpen={isOpenCategories} />
+              <DropDownIcon
+                color={STYLES.colors.colorBluePrimary}
+                isOpen={isOpenCategories}
+              />
             </Style.Selected>
 
             {isOpenCategories && (
@@ -154,7 +159,10 @@ const FormEdit = () => {
               onClick={() => setIsOpenStatus((prev) => !prev)}
             >
               {suggestion?.status}
-              <DropDownIcon color='#4661E6' isOpen={isOpenStatus} />
+              <DropDownIcon
+                color={STYLES.colors.colorBluePrimary}
+                isOpen={isOpenStatus}
+              />
             </Style.Selected>
 
             {isOpenStatus && (
@@ -205,7 +213,11 @@ const FormEdit = () => {
           direction='row'
           align='flex-end'
         >
-          <Button background='#d33737' type='button' onClick={handleDelete}>
+          <Button
+            background={STYLES.colors.colorRed}
+            type='button'
+            onClick={handleDelete}
+          >
             Delete
           </Button>
           <Navigate

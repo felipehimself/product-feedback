@@ -1,7 +1,7 @@
 import * as Style from './styles';
-import { H1, P, Navigate } from '../../shared/sharedComponents';
+import { H1, P, Navigate } from '../shared/shared';
 import NoFeedbackIcon from '../Svgs/NoFeedbackIcon';
-import STYLES from '../../constants/styles';
+
 const NoFeedBack = () => {
   return (
     <Style.Section>

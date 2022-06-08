@@ -1,20 +1,22 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import * as Style from './styles';
-import ArrowLeftIon from '../Svgs/ArrowLeftIon';
 import STYLES from '../../constants/styles';
-import Card from '../CardSuggestion/Card/Card';
+import Card from '../../components/CardSuggestion/Card/Card';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { IData } from '../../interfaces/DataInterface';
-import { H2, P, Button, Navigate } from '../../shared/sharedComponents';
+import { H2, P, Button, Navigate } from '../../components/shared/shared';
 import { useDispatch } from 'react-redux';
+
 import {
   addComment,
   toggleReplyField,
   addReply,
 } from '../../store/slices/dataSlice';
+
 import userImg from './../../assets/images/currentuser.jpg';
+import Goback from '../../components/GoBack/Goback';
 
 const Details = () => {
   const [feedBack, setFeedback] = useState<IData | null>(null);
@@ -35,7 +37,7 @@ const Details = () => {
   const { data } = useSelector((state: RootState) => state.data);
   const { id } = useParams();
 
-  const navigate = useNavigate();
+  
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -109,10 +111,7 @@ const Details = () => {
   return (
     <Style.Container>
       <Style.Header>
-        <Style.Navigate to='/'>
-          <ArrowLeftIon />
-          Go Back
-        </Style.Navigate>
+        <Goback to='/' />
         <Navigate
           to={`/feedback-edit/${id}`}
           background={STYLES.colors.colorBluePrimary}

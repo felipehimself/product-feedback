@@ -16,10 +16,26 @@ html {
   font-family: 'Jost', sans-serif;
 }
 
+@media screen and (max-width: 850px) {
+    
+  html {
+    font-size: 58.5%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+    
+    html {
+      font-size: 55.5%;
+    }
+  }
+
+
 
 body {
   background-color: ${STYLES.colors.colorwhiteSecondary};
   min-height: 100vh;
+  margin-bottom: 4rem;
 }
 
 button, input, textarea {

@@ -49,7 +49,7 @@ interface IComment {
 
 export const Comment = styled.article<IComment>`
   display: grid;
-  grid-template-columns: 10% 80% 10%;
+  grid-template-columns: 6rem auto 5rem;
   width: ${(props) => props.width || '100%'};
   padding-bottom: 1rem;
   margin-left: auto;

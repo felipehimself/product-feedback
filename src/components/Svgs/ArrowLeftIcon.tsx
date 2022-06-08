@@ -1,4 +1,4 @@
-const ArrowLeftIon = () => {
+const ArrowLeftIcon: React.FC<{ color?: string }> = ({ color }) => {
   return (
     <svg
       style={{ marginRight: '1rem' }}
@@ -9,7 +9,7 @@ const ArrowLeftIon = () => {
       <path
         className='left-arrow'
         d='M6 9L2 5l4-4'
-        stroke='#4661E6'
+        stroke={color || '#4661E6'}
         strokeWidth='2'
         fill='none'
         fillRule='evenodd'
@@ -17,4 +17,4 @@ const ArrowLeftIon = () => {
     </svg>
   );
 };
-export default ArrowLeftIon;
+export default ArrowLeftIcon;
