@@ -197,17 +197,17 @@ Para o gerenciamento de estados foram utilizados:
 
 ### Desktop
 
-<img src='./src/images/img-1.PNG' alt='home' width="500" /> 
-<img src='./src/images/img-2.PNG' alt='home' width="500" /> 
-<img src='./src/images/img-3.PNG' alt='home' width="500" /> 
-<img src='./src/images/img-4.jpeg' alt='home' width="500" /> 
-<img src='./src/images/img-5.jpeg' alt='home' width="500" /> 
+<img src='./imgs/img-1.PNG' alt='home' width="500" /> 
+<img src='./imgs/img-2.PNG' alt='home' width="500" /> 
+<img src='./imgs/img-3.PNG' alt='home' width="500" /> 
+<img src='./imgs/img-4.jpeg' alt='home' width="500" /> 
+<img src='./imgs/img-5.jpeg' alt='home' width="500" /> 
 
 
 ### Mobile
 
-<img src='./src/images/img-6.PNG' alt='home' width="350" /> 
-<img src='./src/images/img-7.PNG' alt='home' width="350" /> 
-<img src='./src/images/img-8.PNG' alt='home' width="350" /> 
-<img src='./src/images/img-9.PNG' alt='home' width="350" /> 
-<img src='./src/images/img-10.PNG' alt='home' width="350" /> 
+<img src='./imgs/img-6.PNG' alt='home' width="350" /> 
+<img src='./imgs/img-7.PNG' alt='home' width="350" /> 
+<img src='./imgs/img-8.PNG' alt='home' width="350" /> 
+<img src='./imgs/img-9.PNG' alt='home' width="350" /> 
+<img src='./imgs/img-10.PNG' alt='home' width="350" /> 
