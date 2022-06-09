@@ -2,7 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 import { IData } from '../../interfaces/DataInterface';
 import data from '../../utils/data';
 
-const initialState: IData[] = data;
+const storagedData = JSON.parse(localStorage.getItem('data')!);
+
+const initialState: IData[] = storagedData ?? data;
 
 const dataSlice = createSlice({
   name: 'dataSlice',
@@ -16,6 +18,8 @@ const dataSlice = createSlice({
 
         return suggestion;
       });
+
+      localStorage.setItem('data', JSON.stringify(state.data));
     },
 
     sortData: (state, action) => {
@@ -58,6 +62,7 @@ const dataSlice = createSlice({
 
     addSuggestion: (state, action) => {
       state.data.push(action.payload);
+      localStorage.setItem('data', JSON.stringify(state.data));
     },
 
     toggleReplyField: (state, action) => {
@@ -77,6 +82,7 @@ const dataSlice = createSlice({
 
         return item;
       });
+      localStorage.setItem('data', JSON.stringify(state.data));
     },
 
     addComment: (state, action) => {
@@ -90,6 +96,7 @@ const dataSlice = createSlice({
 
         return item;
       });
+      localStorage.setItem('data', JSON.stringify(state.data));
     },
 
     addReply: (state, action) => {
@@ -112,6 +119,7 @@ const dataSlice = createSlice({
         }
         return item;
       });
+      localStorage.setItem('data', JSON.stringify(state.data));
     },
 
     deleteSuggestion: (state, action) => {
@@ -132,6 +140,7 @@ const dataSlice = createSlice({
 
         return item;
       });
+      localStorage.setItem('data', JSON.stringify(state.data));
     },
   },
 });

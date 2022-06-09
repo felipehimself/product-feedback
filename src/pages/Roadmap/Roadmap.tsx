@@ -3,7 +3,6 @@ import * as Style from './styles';
 import { H1, H2, P, Badge } from '../../components/shared/shared';
 import { Navigate } from '../../components/shared/shared';
 import Goback from '../../components/GoBack/Goback';
-import ArrowUpIcon from '../../components/Svgs/ArrowUpIcon';
 import CommentIcon from '../../components/Svgs/CommentIcon';
 import STYLES from '../../constants/styles';
 import { useSelector, useDispatch } from 'react-redux';
@@ -19,8 +18,8 @@ const Roadmap = () => {
     'in-progress',
     'live',
   ]);
+  
   const [width, setWidth] = useState<number | null>(null);
-
   const plannedAmount = data.filter((item)=> item.status === 'planned').length
   const inProgressAmount = data.filter((item)=> item.status === 'in-progress').length
   const liveAmount = data.filter((item)=> item.status === 'live').length

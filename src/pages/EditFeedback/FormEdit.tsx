@@ -21,6 +21,7 @@ const FormEdit = () => {
   const [isOpenStatus, setIsOpenStatus] = useState(false);
   const [message, setMessage] = useState({ msg: '', isError: false });
   const [suggestion, setSuggestion] = useState<IData | null>(null);
+  const [title, setTitle] = useState('')
 
   const { data } = useSelector((state: RootState) => state.data);
   const { id } = useParams();
@@ -28,6 +29,7 @@ const FormEdit = () => {
   useEffect(() => {
     const suggestionToEdit = data.find((suggestion) => suggestion.id === id);
     setSuggestion(suggestionToEdit!);
+    setTitle(suggestionToEdit?.title!)
   }, [id, data]);
 
   const dispatch = useDispatch();
@@ -97,7 +99,7 @@ const FormEdit = () => {
       </Style.FormHeader>
       <Style.Form>
         <PencilIcon />
-        <H1>Editing '{suggestion?.title}'</H1>
+        <H1>Editing '{title}'</H1>
         <Style.FormControl>
           <Style.Label htmlFor='title'>Feedback title</Style.Label>
           <Style.Span>Add a short, descriptive headline</Style.Span>
